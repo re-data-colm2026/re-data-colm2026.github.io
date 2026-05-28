@@ -63,12 +63,76 @@
 
     /* Offset for fixed headers */
     section[id] {
-      scroll-margin-top: 60px;
+      scroll-margin-top: 50px;
     }
 
     /* Add padding to container for the extra nav bar */
     .container.main-content {
       padding-top: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      margin-top: 50px; /* Space for fixed nav */
+      background-color: #1a1a2e;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      padding: 20px 40px;
+      max-width: 900px;
+    }
+
+    .hero-content h1 {
+      font-family: "Exo", sans-serif;
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content .subtitle {
+      font-family: "Lato", sans-serif;
+      font-size: 1.3em;
+      font-weight: 400;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content .venue {
+      font-family: "Lato", sans-serif;
+      font-size: 1.1em;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      display: inline-block;
     }
 
     @media (max-width: 768px) {
@@ -81,6 +145,99 @@
       .section-nav a {
         padding: 6px 14px;
         font-size: 12px;
+      }
+
+      .hero {
+        min-height: 50vh;
+      }
+
+      .hero-content h1 {
+        font-size: 1.6em;
+      }
+
+      .hero-content .subtitle {
+        font-size: 1em;
+      }
+    }
+
+    /* Person Grid for Speakers and Organizers */
+    .person-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .person-card {
+      text-align: center;
+    }
+
+    .person-card .photo {
+      width: 100%;
+      padding-bottom: 100%; /* Square aspect ratio */
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .person-card .photo img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person-card .name {
+      font-family: "Exo", sans-serif;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .person-card .affiliation {
+      font-family: "Lato", sans-serif;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .person-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .person-card a:hover .photo {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .person-card a:hover .name {
+      color: #3498db;
+    }
+
+    .person-card .photo {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .person-card .name {
+      transition: color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .person-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .person-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -148,14 +305,24 @@
     <a href="#organizers">Organizers</a>
   </nav>
 
+  <!-- Hero Section with Banner Image -->
+  <section id="home" class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Panoramas_of_American_Megalopolis_%285388117159%29.jpg/3840px-Panoramas_of_American_Megalopolis_%285388117159%29.jpg" alt="City Panorama" class="hero-image">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Workshop on Responsible Enabling Data for Foundation Models</h1>
+        <p class="subtitle">Unlocking sensitive data sources responsibly for the next generation of AI</p>
+        <p class="venue">COLM 2026 | October 9, 2026</p>
+      </div>
+    </div>
+  </section>
+
   <div class="container main-content">
     <!-- Content -->
     <div class="content">
 
-      <!-- <h1>Call for Proposals</h1> -->
-
-      <section id="Home">
-        <h1>Workshop on Responsible Enabling Data for Foundation Models @ COLM 2026</h1>
+      <section id="about">
+        <h2>About the Workshop</h2>
         <div class="h5" style="line-height: 1.5">
           <p>As foundation models scale, available training data sources have rapidly depleted. However, several forms of valuable data artifacts such as medical records, legal, and financial documents are restricted from use in model training due to their sensitive nature. In addition, the strong reasoning capabilities in current generative models have opened the possibility for highly personalizable AI applications but these remain bottlenecked by limited access to high quality user data. Hence, it is of immense value to responsibly unlock these data sources (for example: using data transformation or constrained training paradigms) or to generate synthetic alternatives. In this workshop, we aim to bring together domain experts in data, privacy, model training, and legal policy, to advance the frontier of responsibly leveraging such sensitive data with foundation models. </p>
           <p>Topics of interest include (but are not limited to): </p>
@@ -192,24 +359,102 @@
       </section>
 
       <section id="speakers">
-        <div class="h5" style="line-height: 1.5">
-          <h2>Speakers</h2>
-          <p>To be added.</p>
+        <h2>Speakers</h2>
+        <div class="person-grid">
+          <div class="person-card">
+            <a href="https://www.sewonmin.com/" target="_blank">
+              <div class="photo">
+                <img src="images/sewon.jpg" alt="Sewon Min">
+              </div>
+              <p class="name">Sewon Min</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://people.eecs.berkeley.edu/~alexdimakis/" target="_blank">
+              <div class="photo">
+                <img src="images/alexdimakis.jpg" alt="Alex Dimakis">
+              </div>
+              <p class="name">Alex Dimakis</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://nouhadziri.github.io/" target="_blank">
+              <div class="photo">
+                <img src="images/nouha.jpg" alt="Nouha Dziri">
+              </div>
+              <p class="name">Nouha Dziri</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://mireshghallah.github.io/" target="_blank">
+              <div class="photo">
+                <img src="images/nmireshg.png" alt="Niloofar Mireshghallah">
+              </div>
+              <p class="name">Niloofar Mireshghallah</p>
+            </a>
+          </div>
         </div>
       </section>
 
       <section id="organizers">
-        <div class="h5" style="line-height: 1.5">
-          <h2>Organizers</h2>
-          <ul>
-            <li>Anil Ramakrishna</li>
-            <li>Zheng Xu</li>
-            <li>Gautam Kamath</li>
-            <li>Kamalika Chaudhuri</li>
-            <li>Om Thakkar</li>
-            <li>Natalia Ponomareva</li>
-            <li>Aleksandra Korolova</li>
-          </ul>
+        <h2>Organizers</h2>
+        <div class="person-grid">
+          <div class="person-card">
+            <a href="https://anilkramakrishna.github.io/" target="_blank">
+              <div class="photo">
+                <img src="images/anil.jpg" alt="Anil Ramakrishna" style="object-position: center 40%; transform: scale(1.2);">
+              </div>
+              <p class="name">Anil Ramakrishna</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://scholar.google.com/citations?user=TfWlMTYAAAAJ&hl=en" target="_blank">
+              <div class="photo">
+                <img src="images/zheng.jpeg" alt="Zheng Xu">
+              </div>
+              <p class="name">Zheng Xu</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="http://www.gautamkamath.com/" target="_blank">
+              <div class="photo">
+                <img src="images/gautam.jpeg" alt="Gautam Kamath">
+              </div>
+              <p class="name">Gautam Kamath</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://cseweb.ucsd.edu/~kamalika/" target="_blank">
+              <div class="photo">
+                <img src="images/kamalika.jpeg" alt="Kamalika Chaudhuri">
+              </div>
+              <p class="name">Kamalika Chaudhuri</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://www.omthakkar.com/" target="_blank">
+              <div class="photo">
+                <img src="images/om.jpg" alt="Om Thakkar">
+              </div>
+              <p class="name">Om Thakkar</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://scholar.google.com/citations?user=eIdQR5oAAAAJ&hl=en" target="_blank">
+              <div class="photo">
+                <img src="images/natalia.png" alt="Natalia Ponomareva">
+              </div>
+              <p class="name">Natalia Ponomareva</p>
+            </a>
+          </div>
+          <div class="person-card">
+            <a href="https://www.korolova.com/" target="_blank">
+              <div class="photo">
+                <img src="images/aleksandra.jpg" alt="Aleksandra Korolova">
+              </div>
+              <p class="name">Aleksandra Korolova</p>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -220,7 +465,7 @@
   <footer class="footer bg-light p-4">
     <div class="container">
       <p class="float-right"><a href="#">Back to Top</a></p>
-      <p class="text-center">&copy; 2026 COLM</p>
+      <p class="text-center">&copy; 2026 Workshop on Responsible Enabling Data for Foundation Models</p>
     </div>
   </footer>
 
@@ -254,22 +499,38 @@
 
       // Highlight active section on scroll
       function highlightActiveSection() {
-        const scrollPos = window.scrollY + 70;
+        const scrollPos = window.scrollY + 100;
 
+        // Reset all links
+        sectionNavLinks.forEach(link => link.classList.remove('active'));
+
+        // Find the current section
+        let currentSection = null;
         sections.forEach(section => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
-          const sectionId = section.getAttribute('id');
 
           if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            sectionNavLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active');
-              }
-            });
+            currentSection = section.getAttribute('id');
           }
         });
+
+        // Highlight the matching nav link
+        if (currentSection) {
+          sectionNavLinks.forEach(link => {
+            const href = link.getAttribute('href').substring(1).toLowerCase();
+            if (href === currentSection.toLowerCase()) {
+              link.classList.add('active');
+            }
+          });
+        } else if (scrollPos < 200) {
+          // At the top, highlight Home
+          sectionNavLinks.forEach(link => {
+            if (link.getAttribute('href') === '#home') {
+              link.classList.add('active');
+            }
+          });
+        }
       }
 
       window.addEventListener('scroll', highlightActiveSection);
