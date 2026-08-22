@@ -250,6 +250,58 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Schedule Table */
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .schedule-table td {
+      padding: 15px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+
+    .schedule-table .time {
+      width: 140px;
+      font-weight: 600;
+      color: #2c3e50;
+      white-space: nowrap;
+    }
+
+    .schedule-table .event {
+      color: #333;
+    }
+
+    .schedule-table .event em {
+      color: #555;
+    }
+
+    .schedule-table tr.break {
+      background-color: #f7fafc;
+    }
+
+    .schedule-table tr.break .event {
+      color: #718096;
+    }
+
+    .schedule-table ul {
+      margin-left: 20px;
+      font-size: 0.95em;
+    }
+
+    .schedule-table li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-table .time {
+        width: 100px;
+        font-size: 0.9em;
+      }
+    }
   </style>
 </head>
 
@@ -311,6 +363,7 @@
     <a href="#home">Home</a>
     <a href="#cfp">CfP</a>
     <a href="#dates">Important Dates</a>
+    <a href="#schedule">Schedule</a>
     <a href="#speakers">Speakers</a>
     <a href="#committee">Committee</a>
   </nav>
@@ -359,11 +412,87 @@
           <h2>Key Dates</h2>
           <p>All deadlines are 23:59 AoE (anywhere on earth)</p>
           <ul>
-            <li>Submissions open: May 27, 2026</li>
-            <li>Submission deadline: <s>June 23, 2026</s> <strong>June 28, 2026 AoE</strong></li>
-            <li>Acceptance Notifications: July 24, 2026</li>
+            <li><s>Submissions open: May 27, 2026</s></li>
+            <li><s>Submission deadline: <s>June 23, 2026</s> <strong>June 28, 2026 AoE</strong></s></li>
+            <li><s>Acceptance Notifications: July 24, 2026</s></li>
             <li>Workshops day at COLM: October 9, 2026</li>
           </ul>
+        </div>
+      </section>
+
+      <section id="schedule">
+        <h2>Workshop Schedule</h2>
+        <div class="h5" style="line-height: 1.8">
+          <table class="schedule-table">
+            <tbody>
+              <tr>
+                <td class="time">08:45 - 09:00</td>
+                <td class="event"><strong>Welcome and Opening Remarks</strong></td>
+              </tr>
+              <tr>
+                <td class="time">09:00 - 09:35</td>
+                <td class="event"><strong>Invited Talk 1</strong> (5 mins for Q&A)<br>
+                  <em>"Data-Efficient Foundation Model Pre-Training"</em> by Sewon Min</td>
+              </tr>
+              <tr>
+                <td class="time">09:35 - 10:10</td>
+                <td class="event"><strong>Invited Talk 2</strong><br>
+                  <em>"Private Text Generation with LLMs: Mechanisms, Applications, and Audits"</em> by Krishna Pillutla</td>
+              </tr>
+              <tr>
+                <td class="time">10:10 - 10:45</td>
+                <td class="event"><strong>Invited Talk 3</strong><br>
+                  <em>"Overclaiming in Frontier Coding Agents"</em> by Nouha Dziri</td>
+              </tr>
+              <tr class="break">
+                <td class="time">10:45 - 11:00</td>
+                <td class="event"><strong>Coffee Break</strong></td>
+              </tr>
+              <tr>
+                <td class="time">11:00 - 12:00</td>
+                <td class="event"><strong>Oral Presentations</strong> (4 x 15 min)<br>
+                  <ul style="margin-top: 8px; margin-bottom: 0;">
+                    <li>SWE-chat: Coding Agent Interactions From Real Users in the Wild</li>
+                    <li>ContinuousBench: Can Differentially Private Synthetic Text Improve Capabilities?</li>
+                    <li>Beyond FineWeb2-HQ through Synthetic Refinement</li>
+                    <li>Sort, Partition, Randomize: Optimal Binary Hypothesis Testing under Local Differential Privacy</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="break">
+                <td class="time">12:00 - 13:30</td>
+                <td class="event"><strong>Lunch</strong></td>
+              </tr>
+              <tr>
+                <td class="time">13:30 - 14:05</td>
+                <td class="event"><strong>Invited Talk 4</strong><br>
+                  <em>"The Legal Life of a Dataset: What Makes Training Data Usable?"</em> by Janel Thamkul</td>
+              </tr>
+              <tr>
+                <td class="time">14:05 - 14:40</td>
+                <td class="event"><strong>Invited Talk 5</strong><br>
+                  <em>"Emergent Misalignment through the lens of Memorization"</em> by Niloofar Mireshghallah</td>
+              </tr>
+              <tr>
+                <td class="time">14:40 - 15:15</td>
+                <td class="event"><strong>Invited Talk 6</strong><br>
+                  <em>"Creating RL Environments for Responsible Frontier Model Post-Training"</em> by Alex Dimakis</td>
+              </tr>
+              <tr class="break">
+                <td class="time">15:15 - 15:30</td>
+                <td class="event"><strong>Coffee Break</strong></td>
+              </tr>
+              <tr>
+                <td class="time">15:30 - 17:00</td>
+                <td class="event"><strong>Poster Session</strong><br>
+                  All 17 accepted papers invited to present.</td>
+              </tr>
+              <tr>
+                <td class="time">17:00 - 17:05</td>
+                <td class="event"><strong>Closing Remarks</strong></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -412,6 +541,15 @@
             </div>
             <p class="name">Janel Thamkul</p>
             <p class="affiliation">Deputy General Counsel, ex-Anthropic, ex-Google</p>
+          </div>
+          <div class="person-card">
+            <a href="https://krishnap25.github.io/" target="_blank">
+              <div class="photo">
+                <img src="images/krishna.jpg" alt="Krishna Pillutla">
+              </div>
+              <p class="name">Krishna Pillutla</p>
+              <p class="affiliation">IIT Madras</p>
+            </a>
           </div>
         </div>
       </section>
