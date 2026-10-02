@@ -296,6 +296,45 @@
       margin-bottom: 5px;
     }
 
+    .schedule-toggle {
+      color: #2a7ab8;
+      cursor: pointer;
+    }
+
+    .schedule-toggle:hover {
+      color: #2c3e50;
+      text-decoration: underline;
+    }
+
+    .schedule-toggle::after {
+      content: "\25BE";
+      display: inline-block;
+      margin-left: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .schedule-toggle.collapsed::after {
+      transform: rotate(-90deg);
+    }
+
+    .schedule-table .paper-list {
+      list-style: none;
+      margin: 10px 0 0 0;
+      padding-left: 0;
+    }
+
+    .schedule-table .paper-list li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .paper-authors {
+      display: inline-block;
+      padding-left: 2ch;
+      font-size: 0.85em;
+      color: #666;
+    }
+
     @media (max-width: 768px) {
       .schedule-table .time {
         width: 100px;
@@ -450,7 +489,16 @@
               </tr>
               <tr>
                 <td class="time">11:00 - 12:00</td>
-                <td class="event"><strong>Oral Presentations</strong><br></td>
+                <td class="event"><a class="schedule-toggle collapsed" data-toggle="collapse" href="#oral-papers" role="button" aria-expanded="false" aria-controls="oral-papers"><strong>Oral Session</strong></a>
+                  <div class="collapse" id="oral-papers">
+                    <ul class="paper-list">
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3546" target="_blank">SWE-chat: Coding Agent Interactions From Real Users in the Wild</a><br><span class="paper-authors">Joachim Baumann, Vishakh Padmakumar, Kevin Li, John Yang, Diyi Yang, Sanmi Koyejo</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3544" target="_blank">ContinuousBench: Can Differentially Private Synthetic Text Improve Capabilities?</a><br><span class="paper-authors">Peihan Liu, Lucas Rosenblatt, Weiwei Kong, Natalia Ponomareva, Gautam Kamath, Rachel Cummings, Roxana Geambasu, Yu Gan, Lillian Tsai, Alex Bie</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3547" target="_blank">Beyond FineWeb2-HQ through Synthetic Refinement</a><br><span class="paper-authors">Bettina Messmer, Vinko Sabolčec, Martin Jaggi</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3532" target="_blank">Sort, Partition, Randomize: Optimal Binary Hypothesis Testing under Local Differential Privacy</a><br><span class="paper-authors">Elena Ghazi, Jawad Nasser, Flavio Calmon, Ibrahim Issa</span></li>
+                    </ul>
+                  </div>
+                </td>
               </tr>
               <tr class="break">
                 <td class="time">12:00 - 13:30</td>
@@ -477,7 +525,29 @@
               </tr>
               <tr>
                 <td class="time">15:30 - 17:00</td>
-                <td class="event"><strong>Poster Session</strong></td>
+                <td class="event"><a class="schedule-toggle collapsed" data-toggle="collapse" href="#poster-papers" role="button" aria-expanded="false" aria-controls="poster-papers"><strong>Poster Session</strong></a>
+                  <div class="collapse" id="poster-papers">
+                    <ul class="paper-list">
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3539" target="_blank">InfoSynth: Information-Guided Benchmark Synthesis for LLMs</a><br><span class="paper-authors">Ishir Garg, Neel Kolhe, Xuandong Zhao, Dawn Song</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3546" target="_blank">SWE-chat: Coding Agent Interactions From Real Users in the Wild</a><br><span class="paper-authors">Joachim Baumann, Vishakh Padmakumar, Kevin Li, John Yang, Diyi Yang, Sanmi Koyejo</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3535" target="_blank">Inference-Efficient Zero-Shot Differentially Private Text Synthesis</a><br><span class="paper-authors">William Fang, Mayana Pereira</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3544" target="_blank">ContinuousBench: Can Differentially Private Synthetic Text Improve Capabilities?</a><br><span class="paper-authors">Peihan Liu, Lucas Rosenblatt, Weiwei Kong, Natalia Ponomareva, Gautam Kamath, Rachel Cummings, Roxana Geambasu, Yu Gan, Lillian Tsai, Alex Bie</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3537" target="_blank">Natively Unlearnable Large Language Models</a><br><span class="paper-authors">Gaurav R Ghosal, Pratyush Maini, Aditi Raghunathan</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3545" target="_blank">Speech Generation Speaker Poisoning: Capability Erasure in Zero-Shot Text-to-Speech</a><br><span class="paper-authors">Thanathai Lertpetchpun, Thanapat Trachu, Sai Praneeth Karimireddy, Shrikanth Narayanan</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3547" target="_blank">Beyond FineWeb2-HQ through Synthetic Refinement</a><br><span class="paper-authors">Bettina Messmer, Vinko Sabolčec, Martin Jaggi</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3534" target="_blank">Be Kind, Rewrite: Benign Projections via Rewriting Defend Against LLM Data Poisoning Attacks</a><br><span class="paper-authors">John Halloran, Noopur Bhatt</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3540" target="_blank">Can we enable speech data with Differential Privacy?</a><br><span class="paper-authors">Efthymios Tsaprazlis, Vasilis Varsamis, Tiantian Feng, Sai Praneeth Karimireddy, Shrikanth Narayanan</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3541" target="_blank">Librarian Agents: Anticipatory Filesystem Construction via Reinforcement Learning</a><br><span class="paper-authors">Anikait Singh, Teresa Zhang, Yoonho Lee, Roshen S Nair, Aviral Kumar, Chelsea Finn</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3531" target="_blank">Exact Unlearning via Quantized Sufficient Statistics</a><br><span class="paper-authors">Ami Tavory, Shripad Gade, Tal Sarig, Noam Touitou, Ido Guy</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3536" target="_blank">Prune, Then Select: Select High-Quality, Important, and Diverse Data Using Training Trajectories</a><br><span class="paper-authors">Yajiao Liu, Ruoyu Sun</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3532" target="_blank">Sort, Partition, Randomize: Optimal Binary Hypothesis Testing under Local Differential Privacy</a><br><span class="paper-authors">Elena Ghazi, Jawad Nasser, Flavio Calmon, Ibrahim Issa</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3543" target="_blank">Calibrated Candidate Pools for Synthetic EHR Release: Coverage, Concentration, and Privacy Risk</a><br><span class="paper-authors">Md Nasir, Omid Bazgir, Manu Agrawal, Yang Yang, Vinay R Dandin, Anusua Trivedi, Christine Swisher, Chris Gibbons</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3538" target="_blank">UDET: A Dataset for Detecting Contamination on Competition Math via Underdetermined Problems</a><br><span class="paper-authors">Atul Dev, Ishaan Bansal, Shivank Garg, Paras Chopra</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3533" target="_blank">Pseudonymized but Linkable: Cross-Document Re-identification Risks in LLM-Ready Sensitive Text Corpora</a><br><span class="paper-authors">Jingxu Xie</span></li>
+                      <li><a href="https://colm.eventhosts.cc/virtual/2026/3542" target="_blank">Forger: An Environment for Agentic Data Generation</a><br><span class="paper-authors">Vijay Viswanathan, Marshall Mandell, Rishith Prathi, Pang Wei Koh, Graham Neubig, Sherry Wu</span></li>
+                    </ul>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td class="time">17:00 - 17:05</td>
